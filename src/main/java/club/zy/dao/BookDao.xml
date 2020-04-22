@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.zy.dao.BookDao">
+    <resultMap id="Book" type="club.zy.entity.Book">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="writer" property="writer"/>
+        <result column="price" property="price"/>
+    </resultMap>
+
+    <select id="show" resultMap="Book">
+        select * from book
+    </select>
+
+    <select id="count" resultType="Integer">
+        select count(*) from book where name=#{arg0} and writer=#{arg1}
+    </select>
+</mapper>
